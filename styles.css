@@ -1,0 +1,78 @@
+ /* IMPORTS */
+@font-face {
+    font-family: 'DarkerGrotesque-Light';
+    src: url("fonts/DarkerGrotesque-Light.ttf");
+}
+@font-face {
+    font-family: 'LexendDeca-Regular';
+    src: url("fonts/LexendDeca-Regular.ttf");
+}
+ 
+  /* BOX-SIZING SNIPPET*/
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;  
+}
+
+ /* GLOBALES */
+img {
+    max-width: 100%;
+}
+
+.logo {
+    position: fixed;
+    left: 1vw;
+    width: 4vw;
+    height: 100vh;
+    background-image: url("images/Baucis-logo.svg");
+    background-repeat: no-repeat;
+    z-index: 100;
+}
+
+.container {
+    height: 75vw;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    
+}
+
+.hero {
+    position: absolute;
+    height: 75vw;
+    width: 100vw;
+    background-image: url("images/BaucisHero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+.slogan {
+    position: absolute;
+    left: 9.4vw;
+    top: 3.1vw;
+    width: 30vw;
+    height: 20vw;
+}
+
+.slogan h1 {
+    font-family: 'LexendDeca-Regular';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: darkslategray;
+    margin: 0;
+}
+
+.slogan p {
+    margin: 0;
+    font-family: 'DarkerGrotesque-Light';
+    font-size: 1.3rem;
+    color: darkslategray;
+}
