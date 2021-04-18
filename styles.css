@@ -1,14 +1,20 @@
- /* IMPORTS */
+/*IMPORTS*/
 @font-face {
-    font-family: 'DarkerGrotesque-Light';
+    font-family: "DarkerGrotesque-Light";
     src: url("fonts/DarkerGrotesque-Light.ttf");
 }
+
 @font-face {
-    font-family: 'LexendDeca-Regular';
+    font-family: "LexendDeca-Regular";
     src: url("fonts/LexendDeca-Regular.ttf");
 }
- 
-  /* BOX-SIZING SNIPPET*/
+
+@font-face {
+    font-family: "Lora-Italic";
+    src: url("fonts/Lora-Italic.ttf");
+}
+
+/*BOX SIZING SNIPPET*/
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
     box-sizing: border-box;
@@ -17,62 +23,200 @@ html {
 *,
 *:before,
 *:after {
-    box-sizing: inherit;  
+    box-sizing: inherit;
 }
 
- /* GLOBALES */
+/*GLOBALES*/
 img {
     max-width: 100%;
+}
+
+h1 {
+    font-family: "LexendDeca-Regular", "Sans-Serif";
+    font-size: 1.5rem;
+    color: darkslategray;
+}
+
+h3 {
+    font-family: "LexendDeca-Regular", "Sans-Serif";
+    font-size: 13pt;
+    font-weight: 400;
+    color: darkslategray;
+    margin: 0px;
 }
 
 .logo {
     position: fixed;
     left: 1vw;
     width: 4vw;
-    height: 100vh;
-    background-image: url("images/Baucis-logo.svg");
+    height: 100vw;
+    background-image: url("images/baucislogo2.svg");
     background-repeat: no-repeat;
-    z-index: 100;
 }
 
 .container {
+    height: 100vw;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.containerhero {
     height: 75vw;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
-    
 }
 
-.hero {
+.hero-image {
     position: absolute;
     height: 75vw;
     width: 100vw;
-    background-image: url("images/BaucisHero.jpg");
+    background-image: url("images/baucishero.jpg");
+    background-size: contain;
     background-repeat: no-repeat;
-    background-size: cover;
+    opacity: 2;
     z-index: -1;
 }
+
 .slogan {
     position: absolute;
-    left: 9.4vw;
-    top: 3.1vw;
-    width: 30vw;
-    height: 20vw;
-}
-
-.slogan h1 {
-    font-family: 'LexendDeca-Regular';
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: darkslategray;
-    margin: 0;
+    left: 22vw;
+    top: 10vw;
+    height: 30vw;
+    width: 20vw;
 }
 
 .slogan p {
-    margin: 0;
-    font-family: 'DarkerGrotesque-Light';
-    font-size: 1.3rem;
+    font-family: "Lora-Italic", "Serif";
+    font-size: 10pt;
     color: darkslategray;
+    margin: 0px;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    margin: 100px 10px 70px 10px;
+}
+
+.cardscontainer {
+    align-items: stretch;
+}
+
+.cardBox {
+    float: left;
+    font-size: 1.2em;
+    margin: 1% 0 0 1%;
+    perspective: 800px;
+    transition: all 0.3s ease 0s;
+    width: 23.7%;
+}
+
+.cardBox:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card {
+    margin: 2vw;
+    width: 20vw;
+    height: 500px;
+    border-radius: 1rem;
+    background-color: darkslategray;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    cursor: default;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease 0s;
+    -webkit-animation: giro 1s 1;
+    animation: giro 1s 1;
+}
+
+.card .front,
+.card .back {
+    backface-visibility: hidden;
+    display: block;
+    position: absolute;
+}
+
+.card .back {
+    transform: rotateY(180deg);
+}
+
+.cardBox:nth-child(1) .card {
+    -webkit-animation: giro 2s 1;
+    animation: giro 2s 1;
+    background-image: url("images/conversations.jpg");
+    background-size: cover;
+}
+
+.cardBox:nth-child(2) .card {
+    -webkit-animation: giro 2s 1;
+    animation: giro 2s 1;
+    background-image: url("images/analize.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cardBox:nth-child(3) .card {
+    -webkit-animation: giro 2s 1;
+    animation: giro 2s 1;
+    background-image: url("images/prototype.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cardBox:nth-child(4) .card {
+    -webkit-animation: giro 2s 1;
+    animation: giro 2s 1;
+    background-image: url("images/sinergy.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@-webkit-keyframes giro {
+    from {
+        transform: rotateY(180deg);
+    }
+
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes giro {
+    from {
+        transform: rotateY(180deg);
+    }
+
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .cardBox {
+        margin-left: 2.8%;
+        margin-top: 3%;
+        width: 46%;
+    }
+
+    .card {
+        height: 285px;
+    }
+
+    .cardBox:last-child {
+        margin-bottom: 3%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cardBox {
+        width: 94.5%;
+    }
+
+    .card {
+        height: 260px;
+    }
 }
